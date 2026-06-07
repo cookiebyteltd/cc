@@ -6,6 +6,7 @@
 <meta name="description" content="CookieByte — Turning Ideas into Impressions, One Byte at a Time. Premium creative digital solutions, web design, event websites, wedding planning, and branding.">
 <title>CookieByte — Detail. Design. Distinction.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/css/intlTelInput.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════ TOKENS */
@@ -114,12 +115,12 @@ nav {
   transition: all 0.4s var(--transition);
 }
 nav.scrolled {
-  background: rgba(38, 9, 60, 0.85);
+  background: rgba(29,6,47,0.85);
   backdrop-filter: blur(20px) saturate(1.5);
   border-bottom: 1px solid var(--glass-border);
   padding: 1rem 5vw;
 }
-.nav-logo { height: 44px; filter: drop-shadow(0 0 20px rgba(146, 128, 173, 0.6)); }
+.nav-logo { height: 62px; filter: drop-shadow(0 0 30px rgba(155,111,212,0.9)) brightness(1.15); }
 .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
 .nav-links a {
   font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.2em;
@@ -229,25 +230,7 @@ nav.scrolled {
   backdrop-filter: blur(10px);
 }
 .btn-glass:hover { border-color: var(--lilac); background: rgba(198,179,224,0.08); transform: translateY(-3px); }
-.hero-scroll {
-  position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
-  opacity: 0; animation: fadeUp 1s ease 1.8s forwards;
-}
-.hero-scroll span {
-  font-family: 'Cinzel', serif; font-size: 0.5rem; letter-spacing: 0.35em;
-  text-transform: uppercase; color: var(--text-muted);
-}
-.scroll-dot {
-  width: 1px; height: 60px;
-  background: linear-gradient(to bottom, var(--gold), transparent);
-  position: relative; overflow: hidden;
-}
-.scroll-dot::after {
-  content: ''; position: absolute; top: -100%; width: 100%; height: 100%;
-  background: var(--gold); animation: scrollDrop 2s ease-in-out infinite;
-}
-@keyframes scrollDrop { to { top: 100%; } }
+
 
 /* ═══════════════════════════════════════ SECTION BASE */
 section { padding: 8rem 5vw; position: relative; overflow: hidden; }
@@ -272,33 +255,14 @@ section { padding: 8rem 5vw; position: relative; overflow: hidden; }
 }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center; max-width: 1300px; margin: 0 auto; }
 .about-visual { position: relative; display: flex; justify-content: center; }
-.about-section {
-  position: relative;
-}
 .about-logo-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 520px;
-  height: 520px;
-  border-radius: 50%;
+  position: absolute; width: 520px; height: 520px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(198,179,224,0.22) 0%, rgba(212,175,55,0.08) 40%, transparent 70%);
   pointer-events: none;
-
-  background: radial-gradient(
-    circle,
-    rgba(90, 62, 133, 0.45) 0%,
-    rgba(90, 62, 133, 0.25) 25%,
-    rgba(216, 191, 216, 0.12) 45%,
-    transparent 70%
-  );
-
-  filter: blur(35px);
 }
-
 .about-logo-img {
   width: clamp(220px, 30vw, 380px); position: relative; z-index: 1;
-  filter: drop-shadow(0 0 60px rgba(90,62,133,0.6));
+  filter: brightness(3.5) saturate(0.2) drop-shadow(0 0 40px rgba(255,255,255,0.8)) drop-shadow(0 0 80px rgba(198,179,224,0.6));
   animation: floatLogo 7s ease-in-out infinite;
 }
 @keyframes floatLogo { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-18px) rotate(1deg)} }
@@ -332,6 +296,37 @@ section { padding: 8rem 5vw; position: relative; overflow: hidden; }
 .value-icon { font-size: 1.1rem; flex-shrink: 0; }
 
 /* ═══════════════════════════════════════ SERVICES */
+/* WHY US */
+#why-us { padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 5vw, 5rem); background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%); }
+.why-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
+.pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 1rem; }
+@media (max-width: 900px) { .pillars-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; } }
+.pillar {
+  background: var(--glass); border: 1px solid var(--glass-border);
+  border-radius: 20px; padding: 3rem 2.5rem 2.5rem;
+  backdrop-filter: blur(12px); position: relative; overflow: hidden;
+  transition: transform 0.4s var(--transition), box-shadow 0.4s var(--transition);
+}
+.pillar::before {
+  content: ''; position: absolute; inset: 0; border-radius: 20px;
+  background: linear-gradient(135deg, rgba(212,175,55,0.04) 0%, rgba(198,179,224,0.04) 100%);
+  pointer-events: none;
+}
+.pillar:hover { transform: translateY(-8px); box-shadow: var(--glow-gold); }
+.pillar-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(5rem, 10vw, 8rem); font-weight: 700; line-height: 1;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--lilac) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; opacity: 0.18; position: absolute; top: 1rem; right: 1.5rem;
+  pointer-events: none; font-style: italic;
+}
+.pillar-title {
+  font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700;
+  color: var(--gold); margin-bottom: 1.2rem; letter-spacing: 0.03em;
+}
+.pillar-text { font-size: 0.95rem; line-height: 1.85; color: var(--text-dim); }
+
 #services {
   background: linear-gradient(180deg, var(--bg-0) 0%, var(--bg-2) 100%);
 }
@@ -650,6 +645,13 @@ section { padding: 8rem 5vw; position: relative; overflow: hidden; }
   border-color: var(--purple-light);
   background: rgba(90,62,133,0.1);
 }
+.form-group .iti { width: 100%; }
+.form-group .iti input { width: 100%; }
+.iti__flag-container { border-right: 1px solid var(--glass-border); }
+.iti__selected-flag { background: transparent !important; }
+.iti__country-list { background: #2E0F4F; color: var(--white); border: 1px solid var(--glass-border); }
+.iti__country-list .iti__country.iti__highlight { background: rgba(90,62,133,0.4); }
+.iti__country-list .iti__divider { border-bottom: 1px solid var(--glass-border); }
 .form-group input::placeholder, .form-group textarea::placeholder {
   color: var(--text-muted);
 }
@@ -762,6 +764,7 @@ footer {
 <div class="mobile-menu" id="mobileMenu">
   <a href="#hero" onclick="closeMobile()">Home</a>
   <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#why-us" onclick="closeMobile()">Why Us</a>
   <a href="#services" onclick="closeMobile()">Services</a>
   <a href="#portfolio" onclick="closeMobile()">Work</a>
   <a href="#founder" onclick="closeMobile()">Founder</a>
@@ -801,10 +804,7 @@ footer {
       <a href="#contact" class="btn btn-glass">Request a Quote</a>
     </div>
   </div>
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="scroll-dot"></div>
-  </div>
+
 </section>
 
 <!-- ════════ ABOUT ════════ -->
@@ -826,6 +826,31 @@ footer {
         <div class="value-pill"><span class="value-icon">🔍</span> Obsessive Attention to Detail</div>
         <div class="value-pill"><span class="value-icon">⭐</span> Excellence in Every Byte</div>
         <div class="value-pill"><span class="value-icon">🤝</span> Client-First Always</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ WHY US ════════ -->
+<section id="why-us">
+  <div class="why-inner">
+    <span class="section-label reveal">The CookieByte Way</span>
+    <h2 class="section-title reveal" style="text-align:center;margin-bottom:4rem">Our Three Pillars of <em>Excellence</em></h2>
+    <div class="pillars-grid">
+      <div class="pillar reveal">
+        <div class="pillar-letter">D</div>
+        <h3 class="pillar-title">Detail</h3>
+        <p class="pillar-text">Every pixel considered. Every word weighed. Every interaction crafted with surgical precision. We obsess over the details so your audience notices the difference — even when they can't quite explain why.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-letter">D</div>
+        <h3 class="pillar-title">Design</h3>
+        <p class="pillar-text">Aesthetics that communicate. Beauty with purpose. We create visual experiences that don't just look stunning — they tell your story, build your brand, and move people to action.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-letter">D</div>
+        <h3 class="pillar-title">Distinction</h3>
+        <p class="pillar-text">Tailored, never cookie-cutter. Your vision is unique — your digital presence should be too. We reject templates in favour of bespoke solutions that set you apart in a world full of noise.</p>
       </div>
     </div>
   </div>
@@ -1109,7 +1134,7 @@ footer {
       </div>
       <div class="form-group">
         <label>Phone Number *</label>
-        <input type="tel" id="cf-phone" placeholder="+27 XX XXX XXXX">
+        <input type="tel" id="cf-phone" placeholder="Enter your number">
       </div>
       <div class="form-group">
         <label>Preferred Communication *</label>
@@ -1142,57 +1167,6 @@ footer {
       <button class="btn btn-gold" id="submitBtn" style="width:100%;justify-content:center;border:none;cursor:none;" onclick="submitContactForm()">Send Message</button>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- Why Choose Us -->
-<section style="padding:5rem 8vw;background:var(--purple-ultra)">
-  <div style="text-align:center;margin-bottom:3rem">
-    <span class="section-eyebrow">Why CookieByte</span>
-    <h2 class="section-title">The CookieByte Difference</h2>
-  </div>
-
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem">
-
-    <!-- Detail -->
-    <div style="text-align:center;padding:2rem">
-      <div style="font-size:3rem;font-weight:700;margin-bottom:1rem;color:var(--purple-deep);font-family:'Cinzel',serif;">
-        D
-      </div>
-      <h4 style="font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:0.8rem">
-        Detail
-      </h4>
-      <p style="font-size:0.85rem;line-height:1.8;color:var(--text-mid)">
-        Every detail matters. From spacing to structure, we design with precision to ensure nothing feels random — only intentional excellence.
-      </p>
-    </div>
-
-    <!-- Distinction -->
-    <div style="text-align:center;padding:2rem">
-      <div style="font-size:3rem;font-weight:700;margin-bottom:1rem;color:var(--purple-deep);font-family:'Cinzel',serif;">
-        D
-      </div>
-      <h4 style="font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:0.8rem">
-        Distinction
-      </h4>
-      <p style="font-size:0.85rem;line-height:1.8;color:var(--text-mid)">
-        We create digital experiences that stand apart. Every project is uniquely crafted to reflect identity, originality, and presence.
-      </p>
-    </div>
-
-    <!-- Design -->
-    <div style="text-align:center;padding:2rem">
-      <div style="font-size:3rem;font-weight:700;margin-bottom:1rem;color:var(--purple-deep);font-family:'Cinzel',serif;">
-        D
-      </div>
-      <h4 style="font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:0.8rem">
-        Design
-      </h4>
-      <p style="font-size:0.85rem;line-height:1.8;color:var(--text-mid)">
-        Design is where ideas become experience. We craft elegant, immersive visuals that capture attention and communicate purpose.
-      </p>
-    </div>
-
   </div>
 </section>
 
@@ -1235,19 +1209,21 @@ footer {
 <script>
 /* ── FORM SUBMISSION via Google Apps Script ── */
 // 👉 Replace this URL with your deployed Google Apps Script Web App URL
-var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbze-7uzAnmRuLuY6SSDmTDm3JUgVdTvdt9JGmiIsgPLR7JthcsIFgIm1Xl9o_i86V2A/exec';
+var APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL';
 
 function submitContactForm() {
   var name    = document.getElementById('cf-name').value.trim();
   var email   = document.getElementById('cf-email').value.trim();
-  var phone   = document.getElementById('cf-phone').value.trim();
+  var phoneInput = window.iti_phone;
+  var phone = phoneInput ? phoneInput.getNumber() : document.getElementById('cf-phone').value.trim();
+  var phoneValid = phoneInput ? phoneInput.isValidNumber() : phone.length > 5;
   var pref    = document.getElementById('cf-contact-pref').value;
   var service = document.getElementById('cf-service').value;
   var message = document.getElementById('cf-message').value.trim();
   var errEl   = document.getElementById('formError');
 
   // Validation
-  if (!name || !email || !phone || !pref) {
+  if (!name || !email || !phone || !phoneValid || !pref) {
     errEl.style.display = 'block';
     errEl.textContent   = 'Please fill in all required fields (Name, Email, Phone, and preferred contact method).';
     return;
@@ -1307,6 +1283,20 @@ function showError(msg, btn) {
   btn.textContent     = 'Send Message';
   btn.disabled        = false;
 }
+
+/* ── INTL TEL INPUT ── */
+window.addEventListener('DOMContentLoaded', function() {
+  var phoneEl = document.getElementById('cf-phone');
+  if (phoneEl && window.intlTelInput) {
+    window.iti_phone = window.intlTelInput(phoneEl, {
+      utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/js/utils.js',
+      separateDialCode: true,
+      initialCountry: 'za',
+      preferredCountries: ['za', 'zw', 'bw', 'na', 'mz', 'gb', 'us'],
+      autoPlaceholder: 'polite',
+    });
+  }
+});
 
 /* ── CURSOR ── */
 const cursor = document.getElementById('cursor');
@@ -1386,5 +1376,6 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 revealEls.forEach(el => observer.observe(el));
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/js/intlTelInput.min.js"></script>
 </body>
 </html>
